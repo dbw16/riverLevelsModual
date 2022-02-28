@@ -1,13 +1,10 @@
 import datetime
-from decimal import Decimal
 
 import boto3
 from boto3.dynamodb.conditions import Key
-import requests
-from decimal import *
-import logging
+
 from botocore.exceptions import ClientError
-import level
+
 from level import Level
 
 dynamodb = boto3.resource("dynamodb")
@@ -64,3 +61,5 @@ def get_most_recent_data_dynamo(river_name: str) -> [Level]:
     )
     return [Level(time=datetime.datetime.fromtimestamp(int(item['timestamp'])), level=item['level']) for item in
             response['Items']]
+
+
