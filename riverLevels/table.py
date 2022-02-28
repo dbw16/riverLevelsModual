@@ -24,11 +24,11 @@ def batch_update_level_db(river_name: str, levels: [Level]):
             )
 
 
-def update_level_db(level: Level) -> bool:
+def update_level_db(river_name: str, level: Level) -> bool:
     try:
         table.put_item(
             Item={
-                'river_name': "Flesk",
+                'river_name': river_name,
                 'timestamp': int(level.time.timestamp()),
                 'level': level.level,
             },
