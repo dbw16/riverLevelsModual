@@ -2,7 +2,7 @@ import dataclasses
 
 
 @dataclasses.dataclass
-class river:
+class River:
     name: str
     low_water: float
     high_water: float
