@@ -51,7 +51,7 @@ def get_past_data_dynamo(river_name: str, since_date: datetime.datetime) -> [Lev
         KeyConditionExpression=Key('river_name').eq(river_name) & Key('timestamp').gt(since_timestamp)
     )
 
-    return [level.Level(time=datetime.datetime.fromtimestamp(int(item['timestamp'])), level=item['level']) for item in
+    return [Level(time=datetime.datetime.fromtimestamp(int(item['timestamp'])), level=item['level']) for item in
             response['Items']]
 
 
